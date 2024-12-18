@@ -13,8 +13,12 @@ jobs:
       node-version: '18'
    - name: Installing Dependenciese
      run: npm ci
-   - name: TO Fix npm vulnerabilities
+   - name: To fix npm vulnerabilities
      run: npm audit fix
+   - name: To Fix npm funding
+     run: npm fund
+   - name: Checking node version After Installing
+     run: rpm -v
    - name: Run Tests
      run: npm test
    
