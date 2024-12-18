@@ -18,7 +18,7 @@ jobs:
    - name: To Fix npm funding
      run: npm fund
    - name: Checking node version After Installing
-     run: rpm -v
+     run: npm -v
    - name: Run Tests
      run: npm test
    
