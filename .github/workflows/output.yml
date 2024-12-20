@@ -1,4 +1,4 @@
-name: output information metadata
+name: output information
 on: workflow_dispatch
 jobs:
   info:
