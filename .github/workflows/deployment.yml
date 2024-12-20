@@ -1,4 +1,4 @@
-name: readworkflow
+name: deployment
 on:
   push:
 jobs:
@@ -21,4 +21,18 @@ jobs:
      run: npm -v
    - name: Run Tests
      run: npm test
-   
+ deploy:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Clone Code
+      uses: actions/checkout@v3
+    - name: Instal NodeJS
+      uses: actions/setup-node@v3 
+      with:
+        node-version: '18'
+    - name: Installing Dependenciese
+      run: npm ci
+    - name: Build Project
+      run: npm run build
+    - name: deploy
+      run: echo "Deploying the code in server ......!"
