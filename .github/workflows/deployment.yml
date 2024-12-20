@@ -1,5 +1,5 @@
 name: deployment
-on: [push , workflow_dispatch]
+on: [push , workflow_dispatcher]
 jobs:
  test-job:
   runs-on: ubuntu-latest
