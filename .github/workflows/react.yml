@@ -1,0 +1,38 @@
+name: react
+on: [push. workflow_dispatch]
+jobs:
+ test-job:
+  runs-on: ubuntu-latest
+  steps:
+   - name: Clone Code
+     uses: actions/checkout@v3
+   - name: Instal NodeJS
+     uses: actions/setup-node@v3 
+     with:
+      node-version: '18'
+   - name: Installing Dependenciese
+     run: npm ci
+   - name: To fix npm vulnerabilities
+     run: npm audit fix
+   - name: To Fix npm funding
+     run: npm fund
+   - name: Checking node version After Installing
+     run: npm -v
+   - name: Run Tests
+     run: npm test
+ deploy:
+  needs: test-job
+  runs-on: ubuntu-latest
+  steps:
+    - name: Clone Code
+      uses: actions/checkout@v3
+    - name: Instal NodeJS
+      uses: actions/setup-node@v3 
+      with:
+        node-version: '18'
+    - name: Installing Dependenciese
+      run: npm ci
+    - name: Build Project
+      run: npm run build
+    - name: deploy
+      run: echo "Deploying the code in server ......!"
